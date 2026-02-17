@@ -1,0 +1,753 @@
+/* Organigrama CSS - Estilos específicos para el módulo de organigrama */
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    margin-top: var(--spacing-sm);
+}
+
+/* Controles del Organigrama */
+.org-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.controls-left {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.view-toggle {
+    display: flex;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.view-toggle .btn {
+    border: none;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-normal);
+}
+
+.view-toggle .btn.active {
+    background: var(--primary-color);
+    color: var(--text-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.controls-right {
+    display: flex;
+    align-items: center;
+}
+
+.legend {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+/* Contenedor Principal del Organigrama */
+.org-container {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-2xl);
+}
+
+/* Vista Vertical */
+.vertical-view .org-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+/* Nodos del Organigrama */
+.org-node {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--border-color);
+    transition: var(--transition-normal);
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+}
+
+.org-node:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.org-node.start-node {
+    border-color: var(--categoria-desarrollo-personal);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+}
+
+.org-node.end-node {
+    border-color: var(--categoria-desarrollo-personal);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+}
+
+.org-node.academica {
+    border-color: var(--categoria-academica);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+}
+
+.org-node.investigacion {
+    border-color: var(--categoria-investigacion);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+}
+
+.org-node.tutoria {
+    border-color: var(--categoria-tutoria);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+}
+
+.org-node.administrativa {
+    border-color: var(--categoria-administrativa);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+}
+
+.org-node.desarrollo-personal {
+    border-color: var(--categoria-desarrollo-personal);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+}
+
+/* Contenido del Nodo */
+.node-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+}
+
+.node-icon {
+    font-size: var(--text-2xl);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.node-info {
+    flex: 1;
+}
+
+.node-info h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.node-info p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-xs) 0;
+    line-height: var(--leading-tight);
+}
+
+.node-info p:last-child {
+    margin-bottom: 0;
+}
+
+.node-category {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    padding: 4px 8px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    margin-top: var(--spacing-xs);
+}
+
+.node-category.academica {
+    background-color: var(--categoria-academica);
+    color: var(--text-white);
+}
+
+.node-category.investigacion {
+    background-color: var(--categoria-investigacion);
+    color: var(--text-white);
+}
+
+.node-category.tutoria {
+    background-color: var(--categoria-tutoria);
+    color: var(--text-white);
+}
+
+.node-category.administrativa {
+    background-color: var(--categoria-administrativa);
+    color: var(--text-white);
+}
+
+.node-category.desarrollo-personal {
+    background-color: var(--categoria-desarrollo-personal);
+    color: var(--text-white);
+}
+
+/* Conectores */
+.org-connector {
+    width: 3px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--border-color), var(--primary-color), var(--border-color));
+    border-radius: var(--radius-full);
+    position: relative;
+    margin: var(--spacing-sm) 0;
+}
+
+.org-connector::before,
+.org-connector::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: var(--radius-full);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.org-connector::before {
+    top: -4px;
+}
+
+.org-connector::after {
+    bottom: -4px;
+}
+
+/* Ramas del Organigrama */
+.org-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.branch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    width: 100%;
+}
+
+/* Vista Timeline */
+.timeline-view .timeline {
+    position: relative;
+    padding: var(--spacing-xl) 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    transform: translateX(-50%);
+    border-radius: var(--radius-full);
+}
+
+.timeline-event {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+.timeline-event:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-event:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-marker {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-full);
+    border: 3px solid var(--bg-primary);
+    box-shadow: var(--shadow-md);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.timeline-marker.academica {
+    background-color: var(--categoria-academica);
+}
+
+.timeline-marker.investigacion {
+    background-color: var(--categoria-investigacion);
+}
+
+.timeline-marker.tutoria {
+    background-color: var(--categoria-tutoria);
+}
+
+.timeline-marker.administrativa {
+    background-color: var(--categoria-administrativa);
+}
+
+.timeline-marker.desarrollo-personal {
+    background-color: var(--categoria-desarrollo-personal);
+}
+
+.timeline-content {
+    flex: 1;
+    max-width: 45%;
+    padding: 0 var(--spacing-lg);
+}
+
+.timeline-event:nth-child(odd) .timeline-content {
+    text-align: right;
+    margin-right: auto;
+}
+
+.timeline-event:nth-child(even) .timeline-content {
+    text-align: left;
+    margin-left: auto;
+}
+
+.timeline-time {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+}
+
+.timeline-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.timeline-card h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.timeline-card p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.timeline-category {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.timeline-category.academica {
+    background-color: var(--categoria-academica);
+    color: var(--text-white);
+}
+
+.timeline-category.investigacion {
+    background-color: var(--categoria-investigacion);
+    color: var(--text-white);
+}
+
+.timeline-category.tutoria {
+    background-color: var(--categoria-tutoria);
+    color: var(--text-white);
+}
+
+.timeline-category.administrativa {
+    background-color: var(--categoria-administrativa);
+    color: var(--text-white);
+}
+
+.timeline-category.desarrollo-personal {
+    background-color: var(--categoria-desarrollo-personal);
+    color: var(--text-white);
+}
+
+/* Estadísticas del Organigrama */
+.org-stats {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-2xl);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-xl);
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.stat-number {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+/* Resumen por Categoría */
+.category-summary {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-2xl);
+    border: 1px solid var(--border-color);
+}
+
+.summary-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.category-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+}
+
+.category-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.category-icon {
+    font-size: var(--text-xl);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    color: var(--text-white);
+}
+
+.category-header.academica .category-icon {
+    background-color: var(--categoria-academica);
+}
+
+.category-header.investigacion .category-icon {
+    background-color: var(--categoria-investigacion);
+}
+
+.category-header.tutoria .category-icon {
+    background-color: var(--categoria-tutoria);
+}
+
+.category-header.administrativa .category-icon {
+    background-color: var(--categoria-administrativa);
+}
+
+.category-header.desarrollo-personal .category-icon {
+    background-color: var(--categoria-desarrollo-personal);
+}
+
+.category-header h4 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.category-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.category-time {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+}
+
+.category-percentage {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--primary-color);
+}
+
+.category-progress {
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 1s ease-out;
+}
+
+.progress-bar.academica {
+    background-color: var(--categoria-academica);
+}
+
+.progress-bar.investigacion {
+    background-color: var(--categoria-investigacion);
+}
+
+.progress-bar.tutoria {
+    background-color: var(--categoria-tutoria);
+}
+
+.progress-bar.administrativa {
+    background-color: var(--categoria-administrativa);
+}
+
+.progress-bar.desarrollo-personal {
+    background-color: var(--categoria-desarrollo-personal);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.org-node {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.timeline-event:nth-child(odd) .timeline-card {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+.timeline-event:nth-child(even) .timeline-card {
+    animation: slideInRight 0.5s ease-out;
+}
+
+.category-item {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Estados interactivos */
+.org-node.highlighted {
+    box-shadow: 0 0 0 3px var(--primary-color);
+    transform: scale(1.05);
+}
+
+.timeline-card.highlighted {
+    box-shadow: 0 0 0 3px var(--primary-color);
+    transform: translateY(-4px);
+}
+
+/* Responsive para controles */
+@media (max-width: 768px) {
+    .org-controls {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        align-items: stretch;
+    }
+    
+    .controls-left,
+    .controls-right {
+        justify-content: center;
+    }
+    
+    .legend {
+        justify-content: center;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .legend {
+        grid-template-columns: 1fr;
+    }
+    
+    .node-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .node-icon {
+        margin: 0 auto;
+    }
+    
+    .timeline-event {
+        flex-direction: column !important;
+        align-items: center;
+    }
+    
+    .timeline-content {
+        max-width: 100%;
+        text-align: center !important;
+        margin: var(--spacing-lg) 0 !important;
+    }
+    
+    .timeline-line {
+        display: none;
+    }
+    
+    .timeline-marker {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+/* Impresión */
+@media print {
+    .org-controls,
+    .org-stats,
+    .category-summary,
+    .header,
+    .footer {
+        display: none;
+    }
+    
+    .org-node {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .timeline-event {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .category-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
