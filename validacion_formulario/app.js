@@ -9,6 +9,12 @@ const patterns = {
     postalCode: /^\d{6}$/
 };
 
+// Configuración de la API
+const API_CONFIG = {
+    baseURL: 'http://localhost:3000/api',
+    timeout: 10000
+};
+
 // Estado del formulario
 let formState = {
     isValid: false,
@@ -253,6 +259,59 @@ function handleCityChange() {
     updateSubmitState();
 }
 
+// Funciones de API
+async function apiRequest(endpoint, options = {}) {
+    const url = `${API_CONFIG.baseURL}${endpoint}`;
+    const config = {
+        timeout: API_CONFIG.timeout,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options.headers
+        },
+        ...options
+    };
+
+    try {
+        const response = await fetch(url, config);
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || `HTTP error! status: ${response.status}`);
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Error en la petición a la API:', error);
+        throw error;
+    }
+}
+
+// Guardar usuario en la base de datos
+async function saveUserToDatabase(userData) {
+    try {
+        const response = await apiRequest('/users', {
+            method: 'POST',
+            body: JSON.stringify(userData)
+        });
+        
+        return response;
+    } catch (error) {
+        console.error('Error al guardar usuario:', error);
+        throw error;
+    }
+}
+
+// Verificar si el servidor está disponible
+async function checkServerHealth() {
+    try {
+        await apiRequest('/health');
+        return true;
+    } catch (error) {
+        console.error('Servidor no disponible:', error);
+        return false;
+    }
+}
+
 // Mostrar resumen de datos
 function showSummary(formData) {
     const summaryData = document.getElementById('summaryData');
@@ -316,11 +375,41 @@ function closeModal() {
 }
 
 // Inicialización
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const form = document.getElementById('registrationForm');
     const submitBtn = document.getElementById('submitBtn');
     const resetBtn = document.getElementById('resetBtn');
     const citySelect = document.getElementById('city');
+    
+    // Verificar estado del servidor al cargar
+    const serverStatus = await checkServerHealth();
+    if (serverStatus) {
+        console.log('✅ Servidor backend disponible');
+    } else {
+        console.warn('⚠️ Servidor backend no disponible - Usando localStorage como respaldo');
+        // Podríamos mostrar una notificación sutil al usuario
+        const statusIndicator = document.createElement('div');
+        statusIndicator.style.cssText = `
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #ffc107;
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 1000;
+        `;
+        statusIndicator.textContent = 'Modo offline - Datos guardados localmente';
+        document.body.appendChild(statusIndicator);
+        
+        // Ocultar después de 5 segundos
+        setTimeout(() => {
+            if (statusIndicator.parentNode) {
+                statusIndicator.parentNode.removeChild(statusIndicator);
+            }
+        }, 5000);
+    }
     
     // Event listeners para validación en tiempo real
     const fields = [
@@ -375,30 +464,79 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Submit del formulario
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         if (validateForm()) {
             const formData = new FormData(form);
             
-            // Guardar en localStorage (opcional)
-            const formDataObj = {};
+            // Convertir FormData a objeto para la API
+            const userData = {};
             formData.forEach((value, key) => {
-                if (!formDataObj[key]) {
-                    formDataObj[key] = value;
-                } else {
-                    if (!Array.isArray(formDataObj[key])) {
-                        formDataObj[key] = [formDataObj[key]];
+                if (key === 'contactPrefs') {
+                    if (!userData[key]) {
+                        userData[key] = [];
                     }
-                    formDataObj[key].push(value);
+                    userData[key].push(value);
+                } else if (key === 'terms') {
+                    userData['termsAccepted'] = formData.has('terms');
+                } else {
+                    userData[key] = value;
                 }
             });
             
-            localStorage.setItem('userRegistration', JSON.stringify(formDataObj));
+            // Mostrar indicador de carga
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
             
-            // Mostrar confirmación
-            showSummary(formData);
-            document.getElementById('confirmModal').style.display = 'flex';
+            try {
+                // Verificar si el servidor está disponible
+                const serverAvailable = await checkServerHealth();
+                if (!serverAvailable) {
+                    throw new Error('El servidor no está disponible. Por favor, inténtelo más tarde.');
+                }
+                
+                // Guardar en la base de datos
+                const response = await saveUserToDatabase(userData);
+                
+                // Guardar en localStorage como respaldo
+                localStorage.setItem('userRegistration', JSON.stringify({
+                    ...userData,
+                    userId: response.userId,
+                    timestamp: new Date().toISOString()
+                }));
+                
+                // Mostrar confirmación
+                showSummary(formData);
+                document.getElementById('confirmModal').style.display = 'flex';
+                
+                // Mostrar mensaje de éxito
+                console.log('Usuario guardado exitosamente:', response);
+                
+            } catch (error) {
+                console.error('Error al enviar formulario:', error);
+                
+                // Mostrar mensaje de error al usuario
+                alert(`Error al guardar el formulario: ${error.message}`);
+                
+                // Como respaldo, guardar en localStorage
+                localStorage.setItem('userRegistration', JSON.stringify({
+                    ...userData,
+                    timestamp: new Date().toISOString(),
+                    error: error.message
+                }));
+                
+                // Mostrar confirmación local
+                showSummary(formData);
+                document.getElementById('confirmModal').style.display = 'flex';
+                
+            } finally {
+                // Restaurar botón
+                submitBtn.textContent = originalText;
+                updateSubmitState();
+            }
         }
     });
     
