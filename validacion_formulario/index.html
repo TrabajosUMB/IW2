@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro de Usuario</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-card">
+            <h1>Formulario de Registro</h1>
+            <p>Por favor, complete todos los campos obligatorios</p>
+            
+            <form id="registrationForm" novalidate>
+                <!-- Sección: Información Personal -->
+                <fieldset>
+                    <legend>Información Personal</legend>
+                    
+                    <!-- Nombre completo -->
+                    <div class="form-group">
+                        <label for="fullName">Nombre completo *</label>
+                        <input type="text" id="fullName" name="fullName" required minlength="3">
+                        <small class="error-message" id="error-fullName"></small>
+                    </div>
+                    
+                    <!-- Correo electrónico -->
+                    <div class="form-group">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" required>
+                        <small class="error-message" id="error-email"></small>
+                    </div>
+                    
+                    <!-- Contraseña -->
+                    <div class="form-group">
+                        <label for="password">Contraseña *</label>
+                        <input type="password" id="password" name="password" required minlength="8">
+                        <small class="error-message" id="error-password"></small>
+                    </div>
+                    
+                    <!-- Confirmar contraseña -->
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar contraseña *</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <small class="error-message" id="error-confirmPassword"></small>
+                    </div>
+                    
+                    <!-- Fecha de nacimiento -->
+                    <div class="form-group">
+                        <label for="birthDate">Fecha de nacimiento *</label>
+                        <input type="date" id="birthDate" name="birthDate" required>
+                        <small class="error-message" id="error-birthDate"></small>
+                    </div>
+                    
+                    <!-- Celular Colombia -->
+                    <div class="form-group">
+                        <label for="cellphone">Celular (Colombia) *</label>
+                        <input type="tel" id="cellphone" name="cellphone" required>
+                        <small class="error-message" id="error-cellphone"></small>
+                    </div>
+                    
+                    <!-- Teléfono -->
+                    <div class="form-group">
+                        <label for="phone">Teléfono (opcional)</label>
+                        <input type="tel" id="phone" name="phone">
+                        <small class="error-message" id="error-phone"></small>
+                    </div>
+                </fieldset>
+                
+                <!-- Sección: Documentación -->
+                <fieldset>
+                    <legend>Documentación</legend>
+                    
+                    <!-- Tipo de documento -->
+                    <div class="form-group">
+                        <label for="documentType">Tipo de documento *</label>
+                        <select id="documentType" name="documentType" required>
+                            <option value="">Seleccione...</option>
+                            <option value="CC">Cédula de Ciudadanía</option>
+                            <option value="TI">Tarjeta de Identidad</option>
+                            <option value="CE">Cédula de Extranjería</option>
+                            <option value="PA">Pasaporte</option>
+                        </select>
+                        <small class="error-message" id="error-documentType"></small>
+                    </div>
+                    
+                    <!-- Número de documento -->
+                    <div class="form-group">
+                        <label for="documentNumber">Número de documento *</label>
+                        <input type="text" id="documentNumber" name="documentNumber" required>
+                        <small class="error-message" id="error-documentNumber"></small>
+                    </div>
+                </fieldset>
+                
+                <!-- Sección: Ubicación -->
+                <fieldset>
+                    <legend>Ubicación</legend>
+                    
+                    <!-- Género -->
+                    <div class="form-group">
+                        <label>Género *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="gender" value="M" required> Masculino</label>
+                            <label><input type="radio" name="gender" value="F" required> Femenino</label>
+                            <label><input type="radio" name="gender" value="O" required> Otro</label>
+                        </div>
+                        <small class="error-message" id="error-gender"></small>
+                    </div>
+                    
+                    <!-- Ciudad -->
+                    <div class="form-group">
+                        <label for="city">Ciudad *</label>
+                        <select id="city" name="city" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Bogotá">Bogotá</option>
+                            <option value="Medellín">Medellín</option>
+                            <option value="Cali">Cali</option>
+                            <option value="Barranquilla">Barranquilla</option>
+                            <option value="Otra">Otra</option>
+                        </select>
+                        <small class="error-message" id="error-city"></small>
+                    </div>
+                    
+                    <!-- Otra ciudad (condicional) -->
+                    <div class="form-group" id="otherCityGroup" style="display: none;">
+                        <label for="otherCity">¿Cuál? *</label>
+                        <input type="text" id="otherCity" name="otherCity">
+                        <small class="error-message" id="error-otherCity"></small>
+                    </div>
+                    
+                    <!-- Dirección -->
+                    <div class="form-group">
+                        <label for="address">Dirección *</label>
+                        <input type="text" id="address" name="address" required minlength="8">
+                        <small class="error-message" id="error-address"></small>
+                    </div>
+                    
+                    <!-- Código postal -->
+                    <div class="form-group">
+                        <label for="postalCode">Código postal (opcional)</label>
+                        <input type="text" id="postalCode" name="postalCode">
+                        <small class="error-message" id="error-postalCode"></small>
+                    </div>
+                </fieldset>
+                
+                <!-- Sección: Cuenta -->
+                <fieldset>
+                    <legend>Cuenta</legend>
+                    
+                    <!-- Usuario -->
+                    <div class="form-group">
+                        <label for="username">Usuario *</label>
+                        <input type="text" id="username" name="username" required>
+                        <small class="error-message" id="error-username"></small>
+                    </div>
+                    
+                    <!-- Pregunta de seguridad -->
+                    <div class="form-group">
+                        <label for="securityQuestion">Pregunta de seguridad *</label>
+                        <select id="securityQuestion" name="securityQuestion" required>
+                            <option value="">Seleccione...</option>
+                            <option value="pet">¿Cuál es el nombre de tu primera mascota?</option>
+                            <option value="school">¿Cuál es el nombre de tu escuela primaria?</option>
+                            <option value="city">¿En qué ciudad naciste?</option>
+                            <option value="friend">¿Cuál es el nombre de tu mejor amigo de la infancia?</option>
+                            <option value="food">¿Cuál es tu comida favorita?</option>
+                        </select>
+                        <small class="error-message" id="error-securityQuestion"></small>
+                    </div>
+                    
+                    <!-- Respuesta de seguridad -->
+                    <div class="form-group">
+                        <label for="securityAnswer">Respuesta *</label>
+                        <input type="text" id="securityAnswer" name="securityAnswer" required minlength="3">
+                        <small class="error-message" id="error-securityAnswer"></small>
+                    </div>
+                </fieldset>
+                
+                <!-- Sección: Preferencias -->
+                <fieldset>
+                    <legend>Preferencias</legend>
+                    
+                    <!-- Preferencias de contacto -->
+                    <div class="form-group">
+                        <label>Preferencias de contacto *</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="contactPrefs" value="email"> Email</label>
+                            <label><input type="checkbox" name="contactPrefs" value="sms"> SMS</label>
+                            <label><input type="checkbox" name="contactPrefs" value="whatsapp"> WhatsApp</label>
+                        </div>
+                        <small class="error-message" id="error-contactPrefs"></small>
+                    </div>
+                    
+                    <!-- Biografía -->
+                    <div class="form-group">
+                        <label for="biography">Biografía / Descripción (opcional)</label>
+                        <textarea id="biography" name="biography" rows="4"></textarea>
+                        <small class="error-message" id="error-biography"></small>
+                    </div>
+                </fieldset>
+                
+                <!-- Términos y condiciones -->
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        Acepto los términos y condiciones *
+                    </label>
+                    <small class="error-message" id="error-terms"></small>
+                </div>
+                
+                <!-- Botones -->
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" disabled>Enviar</button>
+                    <button type="reset" id="resetBtn">Limpiar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal de confirmación -->
+    <div id="confirmModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>¡Registro Exitoso!</h2>
+            <p>Tu formulario ha sido enviado correctamente.</p>
+            <div id="summaryData"></div>
+            <button onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

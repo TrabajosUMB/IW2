@@ -123,3 +123,4 @@ Edita las variables CSS en `assets/css/styles.css`:
 - ✅ Firefox (últimas 2 versiones)
 - ✅ Safari (últimas 2 versiones)
 - ✅ Edge (últimas 2 versiones)
+    
