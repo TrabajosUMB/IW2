@@ -1,4 +1,4 @@
-# IW2
+# Ingenieria Web II
 En esta carpeta se encuentran todas las actividades de código o Programación de la Materia de Ingeniería Web II
 
 ## CV Landing Page - Ingeniero de Desarrollo
