@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Organigrama diario de actividades - Santiago Rodríguez Angel">
+    <meta name="keywords" content="organigrama, actividades diarias, ingeniería software, Santiago Rodríguez">
+    <meta name="author" content="Santiago Rodríguez Angel">
+    <title>Organigrama Diario - Santiago Rodríguez Angel</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="assets/images/favicon_io/favicon.ico">
+    
+    <!-- CSS Modular -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/organigrama.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html" style="text-decoration: none; color: inherit;">Santiago Rodríguez Angel</a></h1>
+                </div>
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Perfil</a></li>
+                        <li><a href="horario.html" class="nav-link">Horario</a></li>
+                        <li><a href="organigrama.html" class="nav-link active">Organigrama</a></li>
+                        <li><a href="index.html#proyectos" class="nav-link">Proyectos</a></li>
+                    </ul>
+                </nav>
+                <button class="hamburger" id="hamburger" aria-label="Menú">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="section">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="section-title">Organigrama Diario de Actividades</h2>
+                    <p class="section-subtitle">Flujo de actividades académicas diarias - Octavo Semestre</p>
+                </div>
+
+                <!-- Controles del Organigrama -->
+                <div class="org-controls">
+                    <div class="controls-left">
+                        <div class="view-toggle">
+                            <button class="btn btn-primary active" id="verticalView" data-view="vertical">
+                                <span class="view-icon">📊</span>
+                                <span class="view-text">Vertical</span>
+                            </button>
+                            <button class="btn btn-secondary" id="timelineView" data-view="timeline">
+                                <span class="view-icon">⏰</span>
+                                <span class="view-text">Timeline</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="controls-right">
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: var(--categoria-academica);"></div>
+                                <span>Académica</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: var(--categoria-investigacion);"></div>
+                                <span>Investigación</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: var(--categoria-tutoria);"></div>
+                                <span>Tutoría</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: var(--categoria-administrativa);"></div>
+                                <span>Administrativa</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: var(--categoria-desarrollo-personal);"></div>
+                                <span>Desarrollo Personal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vista Vertical -->
+                <div class="org-container vertical-view" id="verticalOrg">
+                    <div class="org-tree">
+                        <!-- Inicio de Jornada -->
+                        <div class="org-node start-node">
+                            <div class="node-content">
+                                <div class="node-icon">🌅</div>
+                                <div class="node-info">
+                                    <h3>Inicio de Jornada</h3>
+                                    <p>5:30 AM - Boxeo Matutino</p>
+                                    <span class="node-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conector -->
+                        <div class="org-connector"></div>
+
+                        <!-- Boxeo -->
+                        <div class="org-node desarrollo-personal">
+                            <div class="node-content">
+                                <div class="node-icon">🥊</div>
+                                <div class="node-info">
+                                    <h3>Entrenamiento de Boxeo</h3>
+                                    <p>5:30 AM - 7:30 AM</p>
+                                    <p>Preparación física y mental</p>
+                                    <span class="node-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conector -->
+                        <div class="org-connector"></div>
+
+                        <!-- Preparación Académica -->
+                        <div class="org-node desarrollo-personal">
+                            <div class="node-content">
+                                <div class="node-icon">🍳</div>
+                                <div class="node-info">
+                                    <h3>Desayuno y Preparación</h3>
+                                    <p>7:30 AM - 8:00 AM</p>
+                                    <p>Preparación para actividades académicas</p>
+                                    <span class="node-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conector principal -->
+                        <div class="org-connector"></div>
+
+                        <!-- Actividades Académicas -->
+                        <div class="org-branch">
+                            <div class="branch-container">
+                                <!-- Trabajos Universitarios -->
+                                <div class="org-node academica">
+                                    <div class="node-content">
+                                        <div class="node-icon">�</div>
+                                        <div class="node-info">
+                                            <h3>Trabajos Universitarios</h3>
+                                            <p>8:00 AM - 12:00 PM</p>
+                                            <p>Desarrollo de proyectos y asignaturas</p>
+                                            <span class="node-category academica">Académica</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Conector -->
+                                <div class="org-connector"></div>
+
+                                <!-- Almuerzo -->
+                                <div class="org-node desarrollo-personal">
+                                    <div class="node-content">
+                                        <div class="node-icon">🍽️</div>
+                                        <div class="node-info">
+                                            <h3>Almuerzo</h3>
+                                            <p>12:00 PM - 1:00 PM</p>
+                                            <p>Receso para alimentación</p>
+                                            <span class="node-category desarrollo-personal">Desarrollo Personal</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Conector -->
+                                <div class="org-connector"></div>
+
+                                <!-- Competencias Universitarias -->
+                                <div class="org-node academica">
+                                    <div class="node-content">
+                                        <div class="node-icon">🎯</div>
+                                        <div class="node-info">
+                                            <h3>Competencias Universitarias</h3>
+                                            <p>1:00 PM - 5:00 PM</p>
+                                            <p>Actividades académicas y desarrollo de habilidades</p>
+                                            <span class="node-category academica">Académica</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Conector -->
+                                <div class="org-connector"></div>
+
+                                <!-- Estudio Personal -->
+                                <div class="org-node investigacion">
+                                    <div class="node-content">
+                                        <div class="node-icon">🔬</div>
+                                        <div class="node-info">
+                                            <h3>Investigación y Estudio</h3>
+                                            <p>5:00 PM - 7:00 PM</p>
+                                            <p>Investigación personal y refuerzo académico</p>
+                                            <span class="node-category investigacion">Investigación</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conector principal -->
+                        <div class="org-connector"></div>
+
+                        <!-- Actividades Noche -->
+                        <div class="org-branch">
+                            <div class="branch-container">
+                                <!-- Cena -->
+                                <div class="org-node desarrollo-personal">
+                                    <div class="node-content">
+                                        <div class="node-icon">🍽️</div>
+                                        <div class="node-info">
+                                            <h3>Cena</h3>
+                                            <p>7:00 PM - 8:00 PM</p>
+                                            <p>Receso para alimentación</p>
+                                            <span class="node-category desarrollo-personal">Desarrollo Personal</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Conector -->
+                                <div class="org-connector"></div>
+
+                                <!-- Trabajos Adicionales -->
+                                <div class="org-node academica">
+                                    <div class="node-content">
+                                        <div class="node-icon">�</div>
+                                        <div class="node-info">
+                                            <h3>Trabajos Adicionales</h3>
+                                            <p>8:00 PM - 10:00 PM</p>
+                                            <p>Proyectos personales y tareas pendientes</p>
+                                            <span class="node-category academica">Académica</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Conector -->
+                                <div class="org-connector"></div>
+
+                                <!-- Desarrollo Personal -->
+                                <div class="org-node desarrollo-personal">
+                                    <div class="node-content">
+                                        <div class="node-icon">🎯</div>
+                                        <div class="node-info">
+                                            <h3>Desarrollo Personal</h3>
+                                            <p>10:00 PM - 11:00 PM</p>
+                                            <p>Reading, cursos online, descanso</p>
+                                            <span class="node-category desarrollo-personal">Desarrollo Personal</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Conector -->
+                                <div class="org-connector"></div>
+
+                                <!-- Fin de Jornada -->
+                                <div class="org-node end-node">
+                                    <div class="node-content">
+                                        <div class="node-icon">🌙</div>
+                                        <div class="node-info">
+                                            <h3>Fin de Jornada</h3>
+                                            <p>11:00 PM - Descanso</p>
+                                            <span class="node-category desarrollo-personal">Desarrollo Personal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vista Timeline -->
+                <div class="org-container timeline-view" id="timelineOrg" style="display: none;">
+                    <div class="timeline">
+                        <!-- Línea de tiempo principal -->
+                        <div class="timeline-line"></div>
+
+                        <!-- Eventos del timeline -->
+                        <div class="timeline-event" data-time="05:30">
+                            <div class="timeline-marker desarrollo-personal"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">5:30 AM</div>
+                                <div class="timeline-card">
+                                    <h4>Inicio de Jornada</h4>
+                                    <p>Comienzo del día con boxeo</p>
+                                    <span class="timeline-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="05:30">
+                            <div class="timeline-marker desarrollo-personal"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">5:30 AM</div>
+                                <div class="timeline-card">
+                                    <h4>Entrenamiento de Boxeo</h4>
+                                    <p>Preparación física y mental</p>
+                                    <span class="timeline-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="07:30">
+                            <div class="timeline-marker desarrollo-personal"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">7:30 AM</div>
+                                <div class="timeline-card">
+                                    <h4>Desayuno y Preparación</h4>
+                                    <p>Preparación para actividades académicas</p>
+                                    <span class="timeline-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="08:00">
+                            <div class="timeline-marker academica"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">8:00 AM</div>
+                                <div class="timeline-card">
+                                    <h4>Trabajos Universitarios</h4>
+                                    <p>Desarrollo de proyectos y asignaturas</p>
+                                    <span class="timeline-category academica">Académica</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="12:00">
+                            <div class="timeline-marker desarrollo-personal"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">12:00 PM</div>
+                                <div class="timeline-card">
+                                    <h4>Almuerzo</h4>
+                                    <p>Receso para alimentación</p>
+                                    <span class="timeline-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="13:00">
+                            <div class="timeline-marker academica"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">1:00 PM</div>
+                                <div class="timeline-card">
+                                    <h4>Competencias Universitarias</h4>
+                                    <p>Actividades académicas y desarrollo de habilidades</p>
+                                    <span class="timeline-category academica">Académica</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="17:00">
+                            <div class="timeline-marker investigacion"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">5:00 PM</div>
+                                <div class="timeline-card">
+                                    <h4>Investigación y Estudio</h4>
+                                    <p>Investigación personal y refuerzo académico</p>
+                                    <span class="timeline-category investigacion">Investigación</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="19:00">
+                            <div class="timeline-marker desarrollo-personal"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">7:00 PM</div>
+                                <div class="timeline-card">
+                                    <h4>Cena</h4>
+                                    <p>Receso para alimentación</p>
+                                    <span class="timeline-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="20:00">
+                            <div class="timeline-marker academica"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">8:00 PM</div>
+                                <div class="timeline-card">
+                                    <h4>Trabajos Adicionales</h4>
+                                    <p>Proyectos personales y tareas pendientes</p>
+                                    <span class="timeline-category academica">Académica</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="22:00">
+                            <div class="timeline-marker desarrollo-personal"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">10:00 PM</div>
+                                <div class="timeline-card">
+                                    <h4>Desarrollo Personal</h4>
+                                    <p>Reading, cursos online, descanso</p>
+                                    <span class="timeline-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event" data-time="23:00">
+                            <div class="timeline-marker desarrollo-personal"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-time">11:00 PM</div>
+                                <div class="timeline-card">
+                                    <h4>Fin de Jornada</h4>
+                                    <p>Descanso</p>
+                                    <span class="timeline-category desarrollo-personal">Desarrollo Personal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estadísticas del Organigrama -->
+                <div class="org-stats">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">14</div>
+                            <div class="stat-label">Actividades</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Categorías</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">14</div>
+                            <div class="stat-label">Horas Diarias</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6:00</div>
+                            <div class="stat-label">AM - 8:00 PM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen por Categoría -->
+                <div class="category-summary">
+                    <h3 class="summary-title">Distribución de Tiempo por Categoría</h3>
+                    <div class="category-grid">
+                        <div class="category-item">
+                            <div class="category-header academica">
+                                <div class="category-icon">📚</div>
+                                <h4>Académica</h4>
+                            </div>
+                            <div class="category-stats">
+                                <div class="category-time">5 horas</div>
+                                <div class="category-percentage">36%</div>
+                            </div>
+                            <div class="category-progress">
+                                <div class="progress-bar academica" style="width: 36%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-header investigacion">
+                                <div class="category-icon">🔬</div>
+                                <h4>Investigación</h4>
+                            </div>
+                            <div class="category-stats">
+                                <div class="category-time">2 horas</div>
+                                <div class="category-percentage">14%</div>
+                            </div>
+                            <div class="category-progress">
+                                <div class="progress-bar investigacion" style="width: 14%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-header tutoria">
+                                <div class="category-icon">👥</div>
+                                <h4>Tutoría</h4>
+                            </div>
+                            <div class="category-stats">
+                                <div class="category-time">1 hora</div>
+                                <div class="category-percentage">7%</div>
+                            </div>
+                            <div class="category-progress">
+                                <div class="progress-bar tutoria" style="width: 7%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-header administrativa">
+                                <div class="category-icon">📋</div>
+                                <h4>Administrativa</h4>
+                            </div>
+                            <div class="category-stats">
+                                <div class="category-time">1 hora</div>
+                                <div class="category-percentage">7%</div>
+                            </div>
+                            <div class="category-progress">
+                                <div class="progress-bar administrativa" style="width: 7%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="category-item">
+                            <div class="category-header desarrollo-personal">
+                                <div class="category-icon">🎯</div>
+                                <h4>Desarrollo Personal</h4>
+                            </div>
+                            <div class="category-stats">
+                                <div class="category-time">5 horas</div>
+                                <div class="category-percentage">36%</div>
+                            </div>
+                            <div class="category-progress">
+                                <div class="progress-bar desarrollo-personal" style="width: 36%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Santiago Rodríguez Angel. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="index.html#contacto">Contacto</a>
+                    <a href="https://www.linkedin.com/in/santiago-rodriguez-angel-a1999b334" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/settings/organizations" target="_blank">GitHub</a>
+                    <a href="mailto:ing.santiagorodriguezangel@gmail.com">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/ui.js"></script>
+</body>
+</html>

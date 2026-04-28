@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "platform_configs",
+  "info": {
+    "singularName": "platform-config",
+    "pluralName": "platform-configs",
+    "displayName": "Configuración de Plataforma",
+    "description": "Configuración de límites y estilos por plataforma social"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "slug": {
+      "type": "enumeration",
+      "enum": ["instagram", "twitter", "facebook", "linkedin", "general"],
+      "required": true,
+      "unique": true
+    },
+    "nombre": { "type": "string", "required": true },
+    "limite_caracteres": { "type": "integer", "default": 2200 },
+    "estilo_imagen": { "type": "string" },
+    "formato_imagen": { "type": "string" },
+    "max_emojis": { "type": "integer", "default": 4 },
+    "descripcion": { "type": "text" }
+  }
+}

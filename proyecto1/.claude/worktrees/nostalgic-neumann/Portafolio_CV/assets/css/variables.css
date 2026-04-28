@@ -1,0 +1,152 @@
+/* Variables CSS - Sistema de Diseño Unificado */
+
+:root {
+    /* Colores Principales */
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #3b82f6;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #06b6d4;
+    
+    /* Colores de Texto */
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-light: #9ca3af;
+    --text-white: #ffffff;
+    
+    /* Colores de Fondo */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --bg-dark: #111827;
+    
+    /* Colores por Materia - Horario */
+    --materia-programacion: #3b82f6;
+    --materia-bases-datos: #10b981;
+    --materia-desarrollo-web: #f59e0b;
+    --materia-ingenieria-software: #ef4444;
+    --materia-matematicas: #8b5cf6;
+    --materia-ingles: #06b6d4;
+    --materia-electiva: #ec4899;
+    
+    /* Colores por Categoría - Organigrama */
+    --categoria-academica: #3b82f6;
+    --categoria-investigacion: #10b981;
+    --categoria-tutoria: #f59e0b;
+    --categoria-administrativa: #ef4444;
+    --categoria-desarrollo-personal: #8b5cf6;
+    
+    /* Estados */
+    --estado-activo: #10b981;
+    --estado-virtual: #06b6d4;
+    --estado-cancelado: #ef4444;
+    --estado-pendiente: #f59e0b;
+    
+    /* Bordes y Sombras */
+    --border-color: #e5e7eb;
+    --border-light: #f3f4f6;
+    --border-dark: #d1d5db;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+    
+    /* Espaciado */
+    --spacing-xs: 0.25rem;   /* 4px */
+    --spacing-sm: 0.5rem;    /* 8px */
+    --spacing-md: 1rem;      /* 16px */
+    --spacing-lg: 1.5rem;    /* 24px */
+    --spacing-xl: 2rem;      /* 32px */
+    --spacing-2xl: 3rem;     /* 48px */
+    --spacing-3xl: 4rem;     /* 64px */
+    
+    /* Tipografía */
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-family-secondary: 'Georgia', 'Times New Roman', serif;
+    
+    /* Tamaños de Fuente */
+    --text-xs: 0.75rem;      /* 12px */
+    --text-sm: 0.875rem;     /* 14px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.125rem;     /* 18px */
+    --text-xl: 1.25rem;      /* 20px */
+    --text-2xl: 1.5rem;      /* 24px */
+    --text-3xl: 1.875rem;    /* 30px */
+    --text-4xl: 2.25rem;     /* 36px */
+    --text-5xl: 3rem;        /* 48px */
+    
+    /* Pesos de Fuente */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    
+    /* Alturas de Línea */
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.75;
+    
+    /* Transiciones */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-Index */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    
+    /* Breakpoints para Media Queries */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+    
+    /* Grid - Horario */
+    --grid-columns: 8; /* Lunes a Sábado + Hora */
+    --grid-rows: 14;   /* 6:00 - 20:00 (intervalos de 1 hora) */
+    
+    /* Componentes específicos */
+    --header-height: 80px;
+    --sidebar-width: 280px;
+    --card-padding: var(--spacing-lg);
+    --button-height: 44px;
+    
+    /* Tema Oscuro (opcional) */
+    --dark-bg-primary: #1f2937;
+    --dark-bg-secondary: #111827;
+    --dark-text-primary: #f9fafb;
+    --dark-text-secondary: #d1d5db;
+    --dark-border-color: #374151;
+}
+
+/* Variables para estados de hover y focus */
+:root {
+    --hover-transform: translateY(-2px);
+    --hover-shadow: var(--shadow-lg);
+    --focus-ring: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Variables para animaciones */
+:root {
+    --animation-bounce: bounce 0.5s ease-in-out;
+    --animation-fade-in: fadeIn 0.3s ease-in;
+    --animation-slide-up: slideUp 0.3s ease-out;
+    --animation-pulse: pulse 2s infinite;
+}

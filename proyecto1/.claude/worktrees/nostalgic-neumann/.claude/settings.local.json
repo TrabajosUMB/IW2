@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(node -e \"require\\('pg'\\); console.log\\('pg ok'\\)\")",
+      "Bash(node -e ':*)"
+    ]
+  }
+}

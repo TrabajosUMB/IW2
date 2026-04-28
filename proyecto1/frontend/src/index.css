@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Reset y tipografía ─── */
+* { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+
+body {
+  background: #0a0a0f;
+  color: #e2e8f0;
+  min-height: 100vh;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+html { scroll-behavior: smooth; }
+
+/* ─── Fondo global de la app ─── */
+.bg-app {
+  background: linear-gradient(135deg, #0a0a0f 0%, #0f0a1e 50%, #0a0f1e 100%);
+  min-height: 100vh;
+}
+
+/* ─── Glassmorphism ─── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+.glass-card-hover {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  display: block;
+  text-decoration: none;
+}
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+}
+
+/* ─── Botón gradiente principal ─── */
+.btn-gradient {
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-gradient:hover:not(:disabled) {
+  background: linear-gradient(135deg, #6d28d9, #1d4ed8);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+  transform: translateY(-1px);
+}
+.btn-gradient:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Botón borde morado */
+.btn-outline-violet {
+  background: transparent;
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.btn-outline-violet:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(139, 92, 246, 0.8);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.2);
+}
+
+/* ─── Inputs oscuros ─── */
+.input-dark {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: #e2e8f0;
+  padding: 10px 14px;
+  width: 100%;
+  transition: all 0.2s ease;
+  outline: none;
+  font-size: 0.875rem;
+}
+.input-dark:focus {
+  border-color: rgba(124, 58, 237, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+.input-dark::placeholder { color: rgba(255, 255, 255, 0.3); }
+.input-dark:disabled { opacity: 0.5; cursor: not-allowed; }
+
+select.input-dark option { background: #1a1a2e; color: #e2e8f0; }
+
+/* ─── Labels ─── */
+.label-dark {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ─── Gradiente de texto ─── */
+.text-gradient {
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Badge de plataforma ─── */
+.platform-badge {
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  color: #a78bfa;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* ─── Animaciones ─── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(124, 58, 237, 0.4); }
+  50%       { box-shadow: 0 0 24px rgba(124, 58, 237, 0.8); }
+}
+.loading-pulse { animation: pulse-glow 1.5s ease-in-out infinite; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 0.4s ease forwards; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.animate-spin { animation: spin 1s linear infinite; }
+
+/* ─── Scrollbar oscura ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.5); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124, 58, 237, 0.8); }
+
+/* ─── Compatibilidad con clases antiguas (usadas en lógica que no tocamos) ─── */
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #6d28d9, #1d4ed8);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+}
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-outline {
+  background: transparent;
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(139, 92, 246, 0.8);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.12); }
+
+.card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; }
+
+.input, .textarea, .select {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: #e2e8f0;
+  padding: 10px 14px;
+  width: 100%;
+  outline: none;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+.input:focus, .textarea:focus, .select:focus {
+  border-color: rgba(124, 58, 237, 0.6);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+.input::placeholder, .textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+.label { color: rgba(255,255,255,0.7); font-size: 0.875rem; font-weight: 500; margin-bottom: 6px; display: block; }

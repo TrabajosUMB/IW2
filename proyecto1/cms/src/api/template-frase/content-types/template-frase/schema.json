@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "template_frases",
+  "info": {
+    "singularName": "template-frase",
+    "pluralName": "template-frases",
+    "displayName": "Frase de Template",
+    "description": "Frases reutilizables para el sistema de templates de fallback"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "categoria": {
+      "type": "enumeration",
+      "enum": ["informar", "vender", "inspirar", "entretener", "educar"],
+      "required": true
+    },
+    "slot": {
+      "type": "enumeration",
+      "enum": ["intro", "desarrollo", "reflexion", "cta", "beneficio", "urgencia", "pregunta"],
+      "required": true
+    },
+    "texto": {
+      "type": "text",
+      "required": true
+    },
+    "activo": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "published_contents",
+  "info": {
+    "singularName": "published-content",
+    "pluralName": "published-contents",
+    "displayName": "Publicación Generada",
+    "description": "Contenido generado con IA guardado en la galería"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "tema": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "objetivo": {
+      "type": "text",
+      "required": true
+    },
+    "tono": {
+      "type": "enumeration",
+      "enum": ["formal", "creativo", "promocional", "profesional", "juvenil"],
+      "required": true,
+      "default": "profesional"
+    },
+    "plataforma": {
+      "type": "enumeration",
+      "enum": ["instagram", "twitter", "facebook", "linkedin", "general"],
+      "required": true,
+      "default": "general"
+    },
+    "texto": {
+      "type": "text",
+      "required": true
+    },
+    "hashtags_principales": {
+      "type": "json"
+    },
+    "hashtags_secundarios": {
+      "type": "json"
+    },
+    "imagen_url": {
+      "type": "string"
+    },
+    "modelo_usado": {
+      "type": "string",
+      "default": "openrouter-ai"
+    },
+    "notas": {
+      "type": "text"
+    }
+  }
+}
